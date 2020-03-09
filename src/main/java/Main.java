@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,12 +11,12 @@ public class Main {
 
 
     public static void main(String[] args) {
-        register();
+        //register();
         login();
-        search();
-        sale();
-        acount();
-        loginTest();
+        //search();
+        //sale();
+        //acount();
+       // loginTest();
     }
 
     public static void login() {
@@ -29,6 +30,8 @@ public class Main {
         driver.findElement(By.cssSelector("#email")).sendKeys("cosmin@fasttrackit.org");
         driver.findElement(By.cssSelector("#pass")).sendKeys("123456");
         driver.findElement(By.cssSelector("#send2")).click();
+        WebElement welcomeMessage = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.my-account > div > div.welcome-msg > p.hello > strong"));
+        Assert.assertEquals("Hello, Sabadus Calin!",welcomeMessage.getText());
         driver.quit();
     }
 
